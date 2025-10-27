@@ -1,0 +1,27 @@
+{
+  "name": "started-project-express",
+  "version": "1.0.0",
+  "main": "build/app.js",
+  "scripts": {
+    "lint": "eslint .",
+    "build": "tsc",
+    "dev": "nodemon ./src/app.ts",
+    "start": "node build/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.4",
+    "@types/node": "^24.9.1",
+    "eslint": "9.38.0",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2"
+  }
+}
