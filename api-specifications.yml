@@ -1,0 +1,82 @@
+openapi: 3.0.0
+info:
+  title: APP-X-X-X API
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+components:
+  parameters:
+    X-API-Key:
+      name: X-API-Key
+      in: header
+      description: API key for authentication
+      required: true
+      schema:
+        type: string
+        example: RAHASIA
+  schemas:
+    user_id:
+      type: string
+      example: "yifvJ4xO7Jq74hQKkRXG"
+    user:
+      type: object
+      properties:
+        username:
+          type: string
+          example: "xxx"
+        email:
+          type: string
+          format: email
+          example: "xxx@example.com"
+        name:
+          type: string
+          example: "xxx"
+      required:
+        - username
+        - email
+        - name
+paths:
+  /test:
+    get:
+      summary: ...
+      description: ...
+      responses:
+        200:
+          description: Successfully retrieved user details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    allOf:
+                      - $ref: "#/components/schemas/user"
+                      - type: object
+                        properties:
+                          id:
+                            $ref: "#/components/schemas/user_id"
+
+    post:
+      summary: ...
+      description: ...
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/user"
+      responses:
+        200:
+          description: User was successfully registered
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "User created"
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        $ref: "#/components/schemas/user_id"
